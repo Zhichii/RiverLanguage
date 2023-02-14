@@ -1,0 +1,78 @@
+// Loading Modules & Defining Macro
+
+@load exampleModule
+@loadFile exampleFile.exampleModule
+@macro exampleMacro exampleReplaceString
+
+// Defining & Setting Variables
+
+int:exampleIntVar;
+int:exampleIntVarWithThat;that=123;
+int:exampleIntVarWithSymbol=123;
+bool:exampleBoolVar=true;
+float:exampleFloatVar=1.23; // 1.23 -> int(1) and int(32)
+string:exampleStringVar="Example String";
+void:exampleVoidVar=null; // Void type cannot store anything
+exampleVoidVar=1; // Will raise SizeError: "void" type (Size 0) cannot set to "1" (Size 4)
+list:exampleListVar=[123];
+exampleListVar[2]=456; // exampleListVar will be [123,456]
+exampleListVar[4]=456; // exampleListVar will be [123,456,null]
+dyn:exampleDynamicVar="Example Var";
+out exampleDynamicVar; // Example Var
+exampleDynamicVar=123;
+out exampleDynamicVar; // 123
+exampleDynamicVar=true;
+out exampleDynamicVar; // true
+exampleDynamicVar=1.23;
+out exampleDynamicVar; // 1.23
+
+// Defining Functions
+
+int:exampleFunc[int:number] {
+  number *= number; // The change will only happens to the local variable, not address
+  return number;
+}
+
+// Normal-Executing
+
+out "Normal-Executing 1";
+out "Normal-Executing 2";
+out "Normal-Executing 3";
+
+// If-Executing
+
+if (bool:(in "Input a bool state: ")) {
+  out "If-Executing 1";
+}
+elseIf (bool:(in "Input another bool state: ")) {
+  out "If-Executing 2";
+}
+else {
+  out "If-Executing 3";
+}
+
+// Repeating-Executing
+
+int:i=0;
+while (i<9) {
+  out i;
+  i ++;
+}
+while (i < 100 && true) {
+  out i*2;
+  i ++;
+}
+for [j, (range 100)] { // j -> 0,1,2,3,4,...,95,96,97,98,99
+  out j;
+}
+for [j, [1,2,3,"123",1.5]] {
+  out j;
+}
+i=0;
+#mark exampleMark;
+if (i<5) {
+  i ++;
+  #goTo exampleMark
+}
+else #goto exampleEnd;
+#mark exampleEnd;

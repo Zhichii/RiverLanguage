@@ -1,0 +1,15 @@
+Every line must be "type func args 0"
+
+
+
+@load %1		  1  1 %1
+@macro %1 %2				@Will change %1 into %2 when compiling
+
+int:%1			  2  1 %1	@%1 will mix
+bool:%1			  2  2 %1
+float:%1		  2  3 %1
+string:%1		  2  4 %1
+void:%1			  2  5 %1
+list:%1			  2  6 %1
+dyn:%1			  2  7 %1
+
