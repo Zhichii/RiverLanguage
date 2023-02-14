@@ -1,6 +1,7 @@
 @load graph
 
 graph.window:win screenName="" baseName="" title="";
-graph.button win text="Hi!" command=lambda[]{
+graph.button win text="Hi!" command=lambda{
   out "Hi!"
 };
+graph.label win text="Hi?";
