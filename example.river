@@ -13,7 +13,7 @@ bool:exampleBoolVar=true;
 float:exampleFloatVar=1.23; // 1.23 -> int(1) and int(32)
 string:exampleStringVar="Example String";
 void:exampleVoidVar=null; // Void type cannot store anything
-exampleVoidVar=1; // Will raise SizeError: "void" type (Size 0) cannot set to "1" (Size 4)
+exampleVoidVar=1; // Will raise compile TypeError: void cannot set to int
 list:exampleListVar=[123];
 exampleListVar[2]=456; // exampleListVar will be [123,456]
 exampleListVar[4]=456; // exampleListVar will be [123,456,null]
@@ -69,10 +69,14 @@ for [j, [1,2,3,"123",1.5]] {
   out j;
 }
 i=0;
-#mark exampleMark;
+#mark exampleMark; // Simillar to function, but no pushing to stack
 if (i<5) {
   i ++;
   #goTo exampleMark
 }
 else #goto exampleEnd;
 #mark exampleEnd;
+
+lambda{echo "123";}; // Call lambda, same as "echo \"123\""
+i=(int:lambda{return 123;}); // Call lambda and set i
+i=int:lambda{return 123;} // Will raise compile TypeError: int cannot set to func

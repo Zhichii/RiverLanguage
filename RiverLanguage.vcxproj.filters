@@ -15,10 +15,13 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="example.rv">
+    <None Include="compile.river">
       <Filter>源文件</Filter>
     </None>
-    <None Include="graph.rv">
+    <None Include="example.river">
+      <Filter>源文件</Filter>
+    </None>
+    <None Include="graph.river">
       <Filter>源文件</Filter>
     </None>
   </ItemGroup>
@@ -26,5 +29,22 @@
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="test.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="river\types\int.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="river\types\float.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="river\types\string.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="river\types\base_type.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
